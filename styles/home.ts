@@ -22,10 +22,36 @@ export const HomeStyle = StyleSheet.create({
 	incidentListHeader: {
 		textAlign: "center",
 		margin: 30,
-		fontSize: 15
+		fontSize: 20,
+		fontFamily: 'Montserrat-SemiBold'
 	},
 	
 	cardIncidentList: {
-		marginHorizontal: 10
+		marginHorizontal: 10,
+		marginBottom: 20,
+		paddingBottom: 50
+	},
+
+	rowSearch: {
+		paddingBottom: 30,
+		paddingHorizontal: 10,
+		flexDirection: "row",
+		alignItems: "center",
+	},
+
+	textInput: {
+		margin: 5,
+		borderColor: "#D8D8D8",
+		borderWidth: 1,
+		borderRadius: 8,
+		minHeight: 50,
+		minWidth: 300
+	},
+	
+	pressable: {
+		backgroundColor: "#bebebeff",
+		padding: 10,
+		alignItems: "center",
+		justifyContent: "center",
 	}
 });
