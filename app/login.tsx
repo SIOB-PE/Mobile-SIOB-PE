@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { router } from "expo-router";
 import { Button, Card, Checkbox, Text, TextInput } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { loginStyles } from "../styles/login";
 import { View, Image, ScrollView } from "react-native";
 
-export default function SignIn() {
+export default function Login() {
   const handleLogin = () => {
-    router.navigate("/Home");
+    router.replace("/Home");
   };
 
   const [checked, setChecked] = useState(false);
   const [visible, setVisible] = useState(true);
-  
+
   return (
-    <SafeAreaView style={loginStyles.screen}>
+    <View style={loginStyles.screen}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}
@@ -77,6 +76,6 @@ export default function SignIn() {
           </Card.Content>
         </Card>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

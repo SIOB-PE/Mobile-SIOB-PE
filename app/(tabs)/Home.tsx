@@ -1,30 +1,21 @@
-import { Text, View, StyleSheet } from 'react-native';
- import { Link } from 'expo-router'; 
+import { Text, View } from "react-native";
+import { HomeStyle } from "@/styles/home";
+import { Card } from "react-native-paper";
+import ItemIncident from "@/components/ItemIncident";
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-      <Link href="/(tabs)/MyRegisters" style={styles.button}>
-        Go to About screen
-      </Link>
+    <View style={HomeStyle.screen}>
+      <Card style={HomeStyle.cardTop}>
+        <Text style={HomeStyle.militaryName}>Major Silva</Text>
+      </Card>
+
+      <Card style={HomeStyle.cardIncidentList}>
+        <Text style={HomeStyle.incidentListHeader}>Lista de ocorrências</Text>
+        <View>
+          <ItemIncident/>
+        </View>
+      </Card>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#fff',
-  },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
-  },
-});
