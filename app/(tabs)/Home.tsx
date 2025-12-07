@@ -1,12 +1,31 @@
-import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Modal,
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { HomeStyle } from "@/styles/home";
 import { Card } from "react-native-paper";
 import ItemIncident from "@/components/ItemIncident";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function Home() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleHideModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={HomeStyle.screen}>
+      <Modal animationType="fade" onRequestClose={handleHideModal} onDismiss={handleHideModal} visible={modalVisible}></Modal>
       <ScrollView>
         <Card style={HomeStyle.cardTop}>
           <Text style={HomeStyle.militaryName}>Major Silva</Text>
@@ -20,20 +39,50 @@ export default function Home() {
               placeholder="Buscar ocorrência"
             />
             <Pressable
-              onPress={ () => { console.log("Pressionado")}}
+              onPress={() => {
+                console.log("Pressionado");
+              }}
               style={HomeStyle.pressable}
             >
               <FontAwesome name="search" size={24} color="black" />
             </Pressable>
           </View>
           <View>
-            <ItemIncident />
-            <ItemIncident />
-            <ItemIncident />
-            <ItemIncident />
-            <ItemIncident />
-            <ItemIncident />
-            <ItemIncident />
+            <ItemIncident
+              showModal={() => {
+                handleOpenModal();
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
+            <ItemIncident
+              showModal={() => {
+                setModalVisible(true);
+              }}
+            />
           </View>
         </Card>
       </ScrollView>

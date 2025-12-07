@@ -11,7 +11,7 @@ export const HomeStyle = StyleSheet.create({
 		marginBottom: 30,
 		borderRadius: 0,
 		alignItems: "flex-end",
-		backgroundColor: "#fff"
+		backgroundColor: "#EBEBEB"
 	},
 
 	militaryName: {
