@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Modal,
   Pressable,
   ScrollView,
   Text,
@@ -13,19 +12,9 @@ import ItemIncident from "@/components/ItemIncident";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function Home() {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const handleOpenModal = () => {
-    setModalVisible(true);
-  };
-
-  const handleHideModal = () => {
-    setModalVisible(false);
-  };
 
   return (
     <View style={HomeStyle.screen}>
-      <Modal animationType="fade" onRequestClose={handleHideModal} onDismiss={handleHideModal} visible={modalVisible}></Modal>
       <ScrollView>
         <Card style={HomeStyle.cardTop}>
           <Text style={HomeStyle.militaryName}>Major Silva</Text>
@@ -48,41 +37,13 @@ export default function Home() {
             </Pressable>
           </View>
           <View>
-            <ItemIncident
-              showModal={() => {
-                handleOpenModal();
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
           </View>
         </Card>
       </ScrollView>

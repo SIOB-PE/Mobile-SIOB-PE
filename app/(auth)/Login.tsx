@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { router } from "expo-router";
 import { Button, Card, Checkbox, Text, TextInput } from "react-native-paper";
-import { loginStyles } from "../styles/login";
+import { loginStyles } from "../../styles/login";
 import { View, Image, ScrollView } from "react-native";
 
 export default function Login() {
@@ -26,7 +26,7 @@ export default function Login() {
         <View style={loginStyles.viewImage}>
           <Image
             style={loginStyles.image}
-            source={require("../assets/images/Grupo 5.png")}
+            source={require("../../assets/images/Grupo 5.png")}
           />
         </View>
         <Card style={loginStyles.card}>

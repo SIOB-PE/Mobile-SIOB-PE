@@ -3,7 +3,7 @@ import {} from "react-native";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export default function TabLayout() {
+export default function TabsLayout() {
   return (
     <Tabs>
       <Tabs.Screen

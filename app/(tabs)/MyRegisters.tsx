@@ -1,73 +1,47 @@
 import React, { useState } from "react";
 import {
-  Modal,
   Pressable,
   ScrollView,
   Text,
   TextInput,
   View,
 } from "react-native";
-import { HomeStyle } from "@/styles/home";
+import { MyRegistersStyle } from "@/styles/myRegisters";
 import { Card } from "react-native-paper";
 import ItemIncident from "@/components/ItemIncident";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function MyRegisters(){
-    const [modalVisible, setModalVisible] = useState(false);
-  
-    const handleOpenModal = () => {
-      setModalVisible(true);
-    };
-  
-    const handleHideModal = () => {
-      setModalVisible(false);
-    };
-  
+
 	return(
-    <View style={HomeStyle.screen}>
-      <Modal animationType="fade" onRequestClose={handleHideModal} onDismiss={handleHideModal} visible={modalVisible}></Modal>
+    <View style={MyRegistersStyle.screen}>
       <ScrollView>
-        <Card style={HomeStyle.cardTop}>
-          <Text style={HomeStyle.militaryName}>Major Silva</Text>
+        <Card style={MyRegistersStyle.cardTop}>
+          <Text style={MyRegistersStyle.militaryName}>Major Silva</Text>
         </Card>
 
-        <Card style={HomeStyle.cardIncidentList}>
-          <Text style={HomeStyle.incidentListHeader}>Meus registros</Text>
-          <View style={HomeStyle.rowSearch}>
+        <Card style={MyRegistersStyle.cardIncidentList}>
+          <Text style={MyRegistersStyle.incidentListHeader}>Meus registros</Text>
+          <View style={MyRegistersStyle.rowSearch}>
             <TextInput
-              style={HomeStyle.textInput}
+              style={MyRegistersStyle.textInput}
               placeholder="Buscar ocorrência"
             />
             <Pressable
               onPress={() => {
                 console.log("Pressionado");
               }}
-              style={HomeStyle.pressable}
+              style={MyRegistersStyle.pressable}
             >
               <FontAwesome name="search" size={24} color="black" />
             </Pressable>
           </View>
           <View>
-            <ItemIncident
-              showModal={() => {
-                handleOpenModal();
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
-            <ItemIncident
-              showModal={() => {
-                setModalVisible(true);
-              }}
-            />
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
+            <ItemIncident/>
           </View>
         </Card>
       </ScrollView>

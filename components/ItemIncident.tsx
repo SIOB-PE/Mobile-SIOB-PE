@@ -2,14 +2,16 @@ import React from "react";
 import { Card } from "react-native-paper";
 import { Pressable, Text, View } from "react-native";
 import { ItemIncidentStyle } from "@/styles/itemIncident";
+import { router } from "expo-router";
 
-type todoItemProps = {
-  showModal: () => void;
-};
 
-export default function ItemIncident({showModal}: todoItemProps) {
+export default function ItemIncident() {
+
+  const redirectToIncidentScreen = () => {
+    router.navigate("/EditIncident");
+  }
   return (
-    <Pressable onPress={showModal}>
+    <Pressable onPress={redirectToIncidentScreen}>
       <Card style={ItemIncidentStyle.card}>
         <Text style={ItemIncidentStyle.titleIncident}>
           Incêndio residêncial
