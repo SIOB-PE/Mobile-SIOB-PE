@@ -37,11 +37,11 @@ export default function MyRegisters(){
             </Pressable>
           </View>
           <View>
+            {/* <ItemIncident/>
             <ItemIncident/>
             <ItemIncident/>
             <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
+            <ItemIncident/> */}
           </View>
         </Card>
       </ScrollView>

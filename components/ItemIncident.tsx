@@ -3,22 +3,29 @@ import { Card } from "react-native-paper";
 import { Pressable, Text, View } from "react-native";
 import { ItemIncidentStyle } from "@/styles/itemIncident";
 import { router } from "expo-router";
+import { Inputs } from "@/types/InputTypes"
 
+type ItemIncidentProps = {
+  data: Inputs;
+};
 
-export default function ItemIncident() {
+export default function ItemIncident({data}: ItemIncidentProps) {
 
   const redirectToIncidentScreen = () => {
-    router.navigate("/EditIncident");
+    router.push({
+      pathname: "/EditIncident",
+      params: { incidentData: JSON.stringify(data)}
+    });
   }
   return (
     <Pressable onPress={redirectToIncidentScreen}>
       <Card style={ItemIncidentStyle.card}>
         <Text style={ItemIncidentStyle.titleIncident}>
-          Incêndio residêncial
+          {data.subgrupoOcorrencia}
         </Text>
         <View style={ItemIncidentStyle.rowBodyTextIncident}>
-          <Text style={ItemIncidentStyle.bodyTextIncident}>Rua Boa viagem</Text>
-          <Text style={ItemIncidentStyle.bodyTextIncident}>Boa viagem</Text>
+          <Text style={ItemIncidentStyle.bodyTextIncident}>{data.tipoLogradouro} {data.logradouro}</Text>
+          <Text style={ItemIncidentStyle.bodyTextIncident}>{data.bairro}</Text>
         </View>
       </Card>
     </Pressable>

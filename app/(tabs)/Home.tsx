@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
+  FlatList,
   Pressable,
   ScrollView,
   Text,
@@ -10,8 +11,29 @@ import { HomeStyle } from "@/styles/home";
 import { Card } from "react-native-paper";
 import ItemIncident from "@/components/ItemIncident";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { API_URl_FIND_ALL_INCIDENTS } from "@/routes/routes";
+import { Inputs } from "@/types/InputTypes";
 
 export default function Home() {
+  useEffect(() => {
+    handleGetAllIncidents();
+  }, []);
+
+  const [incidents, setIncidents] = useState<Inputs[]>([]);
+
+  const handleGetAllIncidents = async () => {
+    try {
+      const response = await fetch(API_URl_FIND_ALL_INCIDENTS);
+      const data = await response.json();
+
+      setIncidents(data);
+      console.log("passou");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
 
   return (
     <View style={HomeStyle.screen}>
@@ -37,13 +59,12 @@ export default function Home() {
             </Pressable>
           </View>
           <View>
-            <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
-            <ItemIncident/>
+            <FlatList
+              scrollEnabled={false}
+              data={incidents}
+              renderItem={({ item }) => <ItemIncident data={item} />}
+              keyExtractor={(item) => item.id}
+            />
           </View>
         </Card>
       </ScrollView>
