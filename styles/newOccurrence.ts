@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-export const EditIncidentStyle = StyleSheet.create({
-	screen: {
+export const NewOccurrenceStyle = StyleSheet.create({
+		screen: {
 		backgroundColor: "#A71414",
 		flex: 1,
 		marginTop: 35

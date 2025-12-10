@@ -49,7 +49,6 @@ export const HomeStyle = StyleSheet.create({
 	},
 	
 	pressable: {
-		backgroundColor: "#bebebeff",
 		padding: 10,
 		alignItems: "center",
 		justifyContent: "center",
