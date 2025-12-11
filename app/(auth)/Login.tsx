@@ -2,15 +2,38 @@ import React, { useState } from "react";
 import { router } from "expo-router";
 import { Button, Card, Checkbox, Text, TextInput } from "react-native-paper";
 import { loginStyles } from "../../styles/login";
-import { View, Image, ScrollView } from "react-native";
+import { View, Image, ScrollView, Alert } from "react-native";
+import { InputsLogin } from "@/types/InputTypes";
+import { API_LOGIN } from "@/routes/routes";
 
-export default function Login() {
-  const handleLogin = () => {
-    router.replace("/Home");
-  };
+type LoginProps = {
+  data: InputsLogin;
+};
 
+export default function Login({data}: LoginProps) {
+  
+  const [matricula, setMatricula] = useState("");
+  const [senha, setSenha] = useState("");
   const [checked, setChecked] = useState(false);
   const [visible, setVisible] = useState(true);
+  
+  
+  const handleLogin = async () => {
+    if (!matricula || !senha){
+      Alert.alert("Erro", "Por favor, preencha todos os campos.")
+    }
+    
+    try{
+      const response = await fetch(`${API_LOGIN}?matricula=${matricula}&senha=${senha}`);
+      if (response.ok){
+        router.replace("/Home");
+        console.log("Login feito com sucesso")
+      }
+      
+    } catch(error){
+      console.error(error);
+    }
+  };
 
   return (
     <View style={loginStyles.screen}>
@@ -35,12 +58,14 @@ export default function Login() {
             <View style={{ marginTop: 40 }}>
               <View style={{ marginBottom: 40 }}>
                 <Text variant="labelLarge">Digite a sua matrícula</Text>
-                <TextInput label={"Matrícula"} />
+                <TextInput onChangeText={setMatricula} value={matricula} label={"Matrícula"} />
               </View>
               <View style={{ marginBottom: 10 }}>
                 <Text variant="labelLarge">Digite a sua senha</Text>
                 <TextInput
                   secureTextEntry={!visible}
+                  onChangeText={setSenha}
+                  value={senha}
                   right={
                     <TextInput.Icon
                       icon={visible ? "eye" : "eye-off"}

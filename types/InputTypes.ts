@@ -1,4 +1,4 @@
-export type Inputs = {
+export type InputsOcorrencia = {
   id: string;
   diretoria: string;
   viatura: string;
@@ -20,3 +20,8 @@ export type Inputs = {
   subgrupoOcorrencia: string;
   situacaoOcorrencia: "ATENDIDA" | "EM_ANDAMENTO" | "NAO_ATENDIDA";
 };
+
+export type InputsLogin = {
+  login: string;
+  senha: string;
+}

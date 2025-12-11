@@ -3,10 +3,10 @@ import { Card } from "react-native-paper";
 import { Pressable, Text, View } from "react-native";
 import { ItemIncidentStyle } from "@/styles/itemIncident";
 import { router } from "expo-router";
-import { Inputs } from "@/types/InputTypes"
+import { InputsOcorrencia } from "@/types/InputTypes"
 
 type ItemIncidentProps = {
-  data: Inputs;
+  data: InputsOcorrencia;
 };
 
 export default function ItemIncident({data}: ItemIncidentProps) {

@@ -12,14 +12,14 @@ import { Card } from "react-native-paper";
 import ItemIncident from "@/components/ItemIncident";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { API_URl_FIND_ALL_INCIDENTS } from "@/routes/routes";
-import { Inputs } from "@/types/InputTypes";
+import { InputsOcorrencia } from "@/types/InputTypes";
 
 export default function Home() {
   useEffect(() => {
     handleGetAllIncidents();
   }, []);
 
-  const [incidents, setIncidents] = useState<Inputs[]>([]);
+  const [incidents, setIncidents] = useState<InputsOcorrencia[]>([]);
 
   const handleGetAllIncidents = async () => {
     try {

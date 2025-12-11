@@ -4,12 +4,12 @@ import { EditIncidentStyle } from "@/styles/editIncident";
 import CustomTextInput from "@/components/CustomTextInput";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Inputs } from "@/types/InputTypes";
+import { InputsOcorrencia } from "@/types/InputTypes";
 import { API_URl_UPDATE } from "@/routes/routes";
 
 export default function EditIncident() {
   const { incidentData } = useLocalSearchParams();
-  const [formData, setFormData] = useState<Partial<Inputs>>({});
+  const [formData, setFormData] = useState<Partial<InputsOcorrencia>>({});
 
   const Label = [
 { id: "1", label: "Diretoria", key: "diretoria" },
@@ -95,7 +95,7 @@ export default function EditIncident() {
                 placeholder={item.placeholder || ""}
                 style={EditIncidentStyle.textInput}
                 label={item.label}
-                value={formData[item.key as keyof Inputs]?.toString() || ""}
+                value={formData[item.key as keyof InputsOcorrencia]?.toString() || ""}
                 onChangeText={(text: string) => handleChange(item.key, text)}
               />
             )}
